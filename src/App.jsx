@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import { FaFacebook, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 function App() {
   const [quote, setQuote] = useState({ author: "", content: "" });
