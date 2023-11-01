@@ -1,12 +1,12 @@
 {
-  "homepage": "https://Simon-Percy.github.io/FCC-projects",
+  "homepage": "https://Simon-Percy.github.io/FCC-projects/",
   "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d -dist",
+    "deploy": "gh-pages -d dist",
     "start": "npm run build",
     "dev": "vite",
     "build": "vite build",
