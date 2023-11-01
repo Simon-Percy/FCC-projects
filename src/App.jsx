@@ -8,18 +8,19 @@ function App() {
   const handleChange = (e) => setTextArea(e.target.value);
 
   return (
-    <>
-      <textarea
-        rows={20}
-        id="editor"
-        value={textArea}
-        onChange={handleChange}
-      />
-
-      <div id="preview">
-        <ReactMarkdown>{textArea}</ReactMarkdown>
+    <div id="drum-machine">
+      <div id="display">
+        <button className="drum-pad">Q</button>
+        <button className="drum-pad">W</button>
+        <button className="drum-pad">E</button>
+        <button className="drum-pad">A</button>
+        <button className="drum-pad">S</button>
+        <button className="drum-pad">D</button>
+        <button className="drum-pad">Z</button>
+        <button className="drum-pad">X</button>
+        <button className="drum-pad">C</button>
       </div>
-    </>
+    </div>
   );
 }
 export default App;

@@ -1,10 +1,21 @@
-#root {
-  background-color: grey;
-}
-
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+  background-color: grey;
+}
+#drum-machine {
+  border: 2px black solid;
+  height: 200px;
+  width: 300px;
+  align-items: center;
+  position: relative;
+  top: 50%;
+}
+
+.drum-pad {
+  background-color: aliceblue;
+
+  padding: 20px 20px;
 }
