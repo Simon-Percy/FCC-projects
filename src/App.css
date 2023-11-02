@@ -8,19 +8,34 @@
 #drum-machine {
   border: 2px black solid;
   border-radius: 3px;
-  position: relative;
-  width: 450px;
-  padding: 40px 50px;
-  display: table;
-  top: 200px;
-  left: 75px;
-}
-#display {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#drum-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  width: 50vh;
 }
 
 .drum-pad {
-  background-color: aliceblue;
-
-  padding: 20px 20px;
+  width: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: rgb(94, 92, 92);
+  cursor: pointer;
+  box-shadow: 2px 5px;
+}
+.drum-pad:active {
+  background-color: white;
+}
+.drum-pad:focus {
+  background-color: white;
 }

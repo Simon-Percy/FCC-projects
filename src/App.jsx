@@ -1,25 +1,109 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-import ReactMarkdown from "react-markdown";
-function App() {
-  const [textArea, setTextArea] = useState(
-    "# Hello \n ## Hello again \n [FCC](https://www.freecodecamp.org/) \n\n` They are cool `\n\n ```This is alright what about now\n```\n * code\n * code\n * repeat\n > nice right border\n\n ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)\n\n **Is that it**"
-  );
-  const handleChange = (e) => setTextArea(e.target.value);
 
+function App() {
+  const audio = useRef();
+  const [beat, setBeat] = useState("");
+  const keys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
+  const handleClick = (e) => e.target.firstChild.play();
+  const handleKeyDown = (e) => {
+    keys.map((key) => {
+      e.key.toUpperCase() === key &&
+        audio.current.play() &&
+        document.getElementById(key).parentElement.focus();
+      setBeat(document.getElementById(e.key).parentElement.id);
+    });
+  };
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+  }, []);
   return (
     <div id="drum-machine">
-      <div id="display">
-        <button className="drum-pad">Q</button>
-        <button className="drum-pad">W</button>
-        <button className="drum-pad">E</button>
-        <button className="drum-pad">A</button>
-        <button className="drum-pad">S</button>
-        <button className="drum-pad">D</button>
-        <button className="drum-pad">Z</button>
-        <button className="drum-pad">X</button>
-        <button className="drum-pad">C</button>
+      <div id="drum-box">
+        {" "}
+        <button className="drum-pad" id="Heater 1" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            id="Q"
+          ></audio>
+          Q
+        </button>
+        <button className="drum-pad" id="Heater 2" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+            id="W"
+          ></audio>
+          W
+        </button>
+        <button className="drum-pad" id="Heater 3" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
+            id="E"
+          ></audio>
+          E
+        </button>
+        <button className="drum-pad" id="Heater 4" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+            id="A"
+          ></audio>
+          A
+        </button>
+        <button className="drum-pad" id="Clap" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
+            id="S"
+          ></audio>
+          S
+        </button>
+        <button className="drum-pad" id="Open-HH" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
+            id="D"
+          ></audio>
+          D
+        </button>
+        <button className="drum-pad" id="Kick-n'-Hat" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+            id="Z"
+          ></audio>
+          Z
+        </button>
+        <button className="drum-pad" id="Kick" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+            id="X"
+          ></audio>
+          X
+        </button>
+        <button className="drum-pad" id="Closed-HH" onClick={handleClick}>
+          <audio
+            className="clip"
+            ref="audio"
+            src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
+            id="C"
+          ></audio>
+          C
+        </button>
       </div>
+      <div id="display">{beat}</div>
     </div>
   );
 }
