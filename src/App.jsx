@@ -15,7 +15,6 @@ function App() {
       if (e.key.toUpperCase() == key) {
         refs[index].current.play() && refs[index].current.parentElement.focus();
         setBeat(refs[index].current.parentElement.id);
-        console.log(refs.current[index]);
       }
     });
   };
