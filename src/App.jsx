@@ -25,86 +25,53 @@ function App() {
     <div id="drum-machine">
       <div id="drum-box">
         {" "}
-        <button className="drum-pad" id="Heater 1" onClick={handleClick}>
-          <audio
-            ref={refs[0]}
-            className="clip"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
-            id="Q"
-          ></audio>
-          Q
+        <button className="cal-btn" id="Heater 1" onClick={handleClick}>
+          0
         </button>
-        <button className="drum-pad" id="Heater 2" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[1]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
-            id="W"
-          ></audio>
-          W
+        <button className="cal-btn" id="Heater 2" onClick={handleClick}>
+          1
         </button>
-        <button className="drum-pad" id="Heater 3" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[2]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
-            id="E"
-          ></audio>
-          E
+        <button className="cal-btn" id="Heater 3" onClick={handleClick}>
+          2
         </button>
-        <button className="drum-pad" id="Heater 4" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[3]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
-            id="A"
-          ></audio>
-          A
+        <button className="cal-btn" id="Heater 4" onClick={handleClick}>
+          3
         </button>
-        <button className="drum-pad" id="Clap" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[4]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
-            id="S"
-          ></audio>
-          S
+        <button className="cal-btn" id="Clap" onClick={handleClick}>
+          4
         </button>
-        <button className="drum-pad" id="Open-HH" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[5]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
-            id="D"
-          ></audio>
-          D
+        <button className="cal-btn" id="Open-HH" onClick={handleClick}>
+          5
         </button>
-        <button className="drum-pad" id="Kick-n'-Hat" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[6]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
-            id="Z"
-          ></audio>
-          Z
+        <button className="cal-btn" id="Kick-n'-Hat" onClick={handleClick}>
+          6
         </button>
-        <button className="drum-pad" id="Kick" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[7]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
-            id="X"
-          ></audio>
-          X
+        <button className="cal-btn" id="Kick" onClick={handleClick}>
+          7
         </button>
-        <button className="drum-pad" id="Closed-HH" onClick={handleClick}>
-          <audio
-            className="clip"
-            ref={refs[8]}
-            src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
-            id="C"
-          ></audio>
-          C
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          8
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          9
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          .
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          -
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          +
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          /
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          x
+        </button>
+        <button className="cal-btn" id="Closed-HH" onClick={handleClick}>
+          =
         </button>
       </div>
       <div id="display">{beat}</div>

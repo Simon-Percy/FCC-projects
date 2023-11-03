@@ -20,7 +20,7 @@
   width: 50vh;
 }
 
-.drum-pad {
+.cal-btn {
   width: 5rem;
   text-align: center;
   display: flex;
@@ -33,9 +33,9 @@
   cursor: pointer;
   box-shadow: 2px 5px;
 }
-.drum-pad:active {
+.cal-btn:active {
   background-color: white;
 }
-.drum-pad:focus {
+.cal-btn:focus {
   background-color: white;
 }
