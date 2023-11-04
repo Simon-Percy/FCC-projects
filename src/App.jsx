@@ -75,7 +75,7 @@ function App() {
           <button className="cal-btn" id="equals" onClick={handleClick}>
             =
           </button>
-          <button className="cal-btn" id="clear" onClick={handleClick}>
+          <button className="cal-btn" id="clear" onClick={() => setEquation(0)}>
             clear
           </button>
         </div>

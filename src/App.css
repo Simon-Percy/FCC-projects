@@ -37,3 +37,12 @@
 .cal-btn:focus {
   background-color: white;
 }
+#calulator-box #display {
+  position: absolute;
+  top: 150px;
+  background-color: aliceblue;
+  width: 150px;
+  height: 30px;
+  font-size: 2em;
+  border-radius: 4px;
+}
