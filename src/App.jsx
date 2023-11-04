@@ -5,9 +5,11 @@ function App() {
   const keys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
 
   const refs = keys.map(() => useRef());
+  const [cal, setCal] = [];
   const [equation, setEquation] = useState(0);
   const handleClick = (e) => {
     setEquation((prev) => prev + e.target.textContent);
+    setCal((...cal) => [...cal, prev]);
   };
   const handleKeyDown = (e) => {
     keys.map((key, index) => {
@@ -72,7 +74,11 @@ function App() {
           <button className="cal-btn" id="multiply" onClick={handleClick}>
             x
           </button>
-          <button className="cal-btn" id="equals" onClick={handleClick}>
+          <button
+            className="cal-btn"
+            id="equals"
+            onClick={() => console.log(cal)}
+          >
             =
           </button>
           <button className="cal-btn" id="clear" onClick={() => setEquation(0)}>
