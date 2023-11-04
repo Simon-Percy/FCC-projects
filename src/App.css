@@ -5,15 +5,13 @@
   font-family: sans-serif;
   background-color: grey;
 }
-#drum-machine {
-  border: 2px black solid;
-  border-radius: 3px;
+#calulator-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-#drum-box {
+#buttons {
   display: flex;
   flex-wrap: wrap;
   align-content: space-evenly;
