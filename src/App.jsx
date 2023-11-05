@@ -8,11 +8,9 @@ function App() {
     if (equation.charAt(0) == 0) {
       setEquation(equation.replace("0", ""));
     }
-    if (equation.includes("..")) return;
 
     setEquation((prev) => prev + e.target.textContent);
   };
-  const calculate = () => {};
 
   return (
     <>
@@ -50,7 +48,13 @@ function App() {
           <button className="cal-btn" id="nine" onClick={handleClick}>
             9
           </button>
-          <button className="cal-btn" id="decimal" onClick={handleClick}>
+          <button
+            className="cal-btn"
+            id="decimal"
+            onClick={() => {
+              equation.includes(".") ? { handleClick } : null;
+            }}
+          >
             .
           </button>
           <button className="cal-btn" id="subtract" onClick={handleClick}>
@@ -68,7 +72,18 @@ function App() {
           <button
             className="cal-btn"
             id="equals"
-            onClick={() => console.log(evaluate(equation))}
+            onClick={() => {
+              try {
+                setEquation(evaluate(equation).toString());
+              } catch (e) {
+                setEquation(
+                  evaluate(
+                    equation.replace(equation.charAt(e.message[21] - 2), "")
+                  )
+                );
+                console.dir(e.message[21]);
+              }
+            }}
           >
             =
           </button>
