@@ -17,6 +17,19 @@ function App() {
       setDecimal(true);
     }
   };
+  function hasConsecutiveOperators(equation, consecutiveOperators) {
+    for (let i = 0; i < equation.length - 1; i++) {
+      const char = equation[i];
+      const nextChar = equation[i + 1];
+      if (
+        consecutiveOperators.includes(char) &&
+        consecutiveOperators.includes(nextChar)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
   const handleClick = (e) => {
     if (equation === "0" && e.target.id !== "decimal") {
       setEquation(e.target.textContent);
@@ -85,14 +98,28 @@ function App() {
             id="equals"
             onClick={() => {
               try {
+                if (hasConsecutiveOperators(equation, "-/+")) {
+                  throw new Error("Consecutive operators");
+                }
                 setEquation(evaluate(equation).toString());
               } catch (e) {
-                setEquation(
-                  evaluate(
-                    equation.replace(equation.charAt(e.message[21] - 2), "")
-                  )
-                );
-                console.dir(e.message[21]);
+                console.log(e.message);
+                if (
+                  equation.lastIndexOf("-") > equation.lastIndexOf("+") &&
+                  equation.lastIndexOf("-") > equation.lastIndexOf("*") &&
+                  equation.lastIndexOf("-") > equation.lastIndexOf("/")
+                ) {
+                  setEquation(evaluate(equation.replace(/[+/*]/g, "")));
+                } else if (
+                  equation.lastIndexOf("+") > equation.lastIndexOf("*") &&
+                  equation.lastIndexOf("+") > equation.lastIndexOf("/")
+                ) {
+                  setEquation(evaluate(equation.replace(/[-/*]/g, "")));
+                } else if (
+                  equation.lastIndexOf("*") > equation.lastIndexOf("/")
+                ) {
+                  setEquation(evaluate(equation.replace(/[+/-]/g, "")));
+                } else setEquation(evaluate(equation.replace(/[+*-]/g, "")));
               }
             }}
           >
