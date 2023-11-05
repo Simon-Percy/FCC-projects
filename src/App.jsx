@@ -1,28 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
+import { evaluate } from "mathjs";
 
 function App() {
-  const keys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
-
-  const refs = keys.map(() => useRef());
-  const [cal, setCal] = [];
-  const [equation, setEquation] = useState(0);
+  const [equation, setEquation] = useState("0");
   const handleClick = (e) => {
-    setEquation((prev) => prev + e.target.textContent);
-    setCal((...cal) => [...cal, prev]);
-  };
-  const handleKeyDown = (e) => {
-    keys.map((key, index) => {
-      if (e.key.toUpperCase() == key) {
-        refs[index].current.play() && refs[index].current.parentElement.focus();
-        setEquation(refs[index].current.parentElement.id);
-      }
-    });
-  };
+    if (equation.charAt(0) == 0) {
+      setEquation(equation.replace("0", ""));
+    }
+    if (equation.includes("..")) return;
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-  }, []);
+    setEquation((prev) => prev + e.target.textContent);
+  };
+  const calculate = () => {};
+
   return (
     <>
       <div id="calulator-box">
@@ -72,16 +63,20 @@ function App() {
             /
           </button>
           <button className="cal-btn" id="multiply" onClick={handleClick}>
-            x
+            *
           </button>
           <button
             className="cal-btn"
             id="equals"
-            onClick={() => console.log(cal)}
+            onClick={() => console.log(evaluate(equation))}
           >
             =
           </button>
-          <button className="cal-btn" id="clear" onClick={() => setEquation(0)}>
+          <button
+            className="cal-btn"
+            id="clear"
+            onClick={() => setEquation("0")}
+          >
             clear
           </button>
         </div>
