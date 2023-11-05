@@ -4,12 +4,29 @@ import { evaluate } from "mathjs";
 
 function App() {
   const [equation, setEquation] = useState("0");
-  const handleClick = (e) => {
-    if (equation.charAt(0) == 0) {
-      setEquation(equation.replace("0", ""));
+  const [decimal, setDecimal] = useState(false);
+  const decimalChecker = (e) => {
+    if (
+      e.target.textContent == "+" ||
+      e.target.textContent == "-" ||
+      e.target.textContent == "*" ||
+      e.target.textContent == "/"
+    ) {
+      setDecimal(false);
+    } else if (e.target.id === "decimal") {
+      setDecimal(true);
     }
-
-    setEquation((prev) => prev + e.target.textContent);
+  };
+  const handleClick = (e) => {
+    if (equation === "0" && e.target.id !== "decimal") {
+      setEquation(e.target.textContent);
+    } else {
+      if (e.target.id === "decimal" && decimal) {
+        return;
+      }
+      decimalChecker(e);
+      setEquation((prev) => prev + e.target.textContent);
+    }
   };
 
   return (
@@ -48,13 +65,7 @@ function App() {
           <button className="cal-btn" id="nine" onClick={handleClick}>
             9
           </button>
-          <button
-            className="cal-btn"
-            id="decimal"
-            onClick={() => {
-              equation.includes(".") ? { handleClick } : null;
-            }}
-          >
+          <button className="cal-btn" id="decimal" onClick={handleClick}>
             .
           </button>
           <button className="cal-btn" id="subtract" onClick={handleClick}>
@@ -90,7 +101,10 @@ function App() {
           <button
             className="cal-btn"
             id="clear"
-            onClick={() => setEquation("0")}
+            onClick={() => {
+              setEquation("0");
+              setDecimal(false);
+            }}
           >
             clear
           </button>
