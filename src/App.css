@@ -5,44 +5,15 @@
   font-family: sans-serif;
   background-color: grey;
 }
-#calulator-box {
+#container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-#buttons {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-evenly;
-  width: 50vh;
+#break {
+  float: right;
 }
-
-.cal-btn {
-  width: 5rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  border: 1px solid white;
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: rgb(94, 92, 92);
-  cursor: pointer;
-  box-shadow: 2px 5px;
-}
-.cal-btn:active {
-  background-color: white;
-}
-.cal-btn:focus {
-  background-color: white;
-}
-#calulator-box #display {
-  position: absolute;
-  top: 150px;
-  background-color: aliceblue;
-  width: 180px;
-  height: 30px;
-  font-size: 2em;
-  border-radius: 4px;
+#session {
+  float: left;
 }
