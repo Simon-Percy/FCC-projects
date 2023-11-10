@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { FaFacebook, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6"; //be able to share the quote
 
 function App() {
   const [quote, setQuote] = useState({ author: "", content: "" });
 
+  //smoothly change the colors
   const transition = "all 1s";
+  //random darkish color on each render
   const colorChange = () => {
     const red = Math.floor(Math.random() * 128);
     const green = Math.floor(Math.random() * 128);
@@ -20,7 +22,7 @@ function App() {
   async function updateQuote() {
     setrandomColor(colorChange());
     try {
-      // Fetch a random quote from the Quotable API
+      // fetch a random quote from the Quotable API
       const response = await fetch("https://api.quotable.io/random");
       if (response.ok) {
         const data = await response.json();
@@ -43,7 +45,6 @@ function App() {
         {quote.content}
         <FaQuoteRight size="30" />
       </h2>
-
       <p id="author">- {quote.author}</p>
       <button
         style={{ backgroundColor: randomColor, transition }}
