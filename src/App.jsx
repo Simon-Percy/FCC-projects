@@ -10,9 +10,9 @@ function App() {
   const transition = "all 1s";
   //random darkish color on each render
   const colorChange = () => {
-    const red = Math.floor(Math.random() * 128);
-    const green = Math.floor(Math.random() * 128);
-    const blue = Math.floor(Math.random() * 128);
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
     return `rgb(${red},${green},${blue})`;
   };
   const [randomColor, setrandomColor] = useState(() => colorChange());
