@@ -16,6 +16,9 @@ function App() {
     return `rgb(${red},${green},${blue})`;
   };
   const [randomColor, setrandomColor] = useState(() => colorChange());
+  /*
+  !note to self change these using useRef()
+  */
   document.getElementById("root").style.backgroundColor = randomColor;
   document.getElementById("root").style.transition = transition;
 
@@ -34,6 +37,7 @@ function App() {
       console.error("Error:fetching data:", error);
     }
   }
+  //lauch function on each render
   useEffect(() => {
     updateQuote();
   }, []);
